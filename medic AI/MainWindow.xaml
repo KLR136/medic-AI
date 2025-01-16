@@ -1,0 +1,75 @@
+﻿<Window x:Class="medic_AI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:medic_AI"
+        mc:Ignorable="d"
+            Title="Medical AI" Height="1080" Width="1920" WindowStyle="ThreeDBorderWindow" AllowsTransparency="false" Background="Transparent">
+    <Grid Background="#80000000">
+        <!-- Background Video -->
+        <MediaElement Name="BackgroundVideo" LoadedBehavior="Play" UnloadedBehavior="Manual" Stretch="Fill" IsHitTestVisible="False" Volume="0" MediaEnded="BackgroundVideo_MediaEnded" />
+        <!-- Main Content -->
+        <StackPanel HorizontalAlignment="Center" Width="1280" Margin="0,346,0,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="400"/>
+                </Grid.RowDefinitions>
+                <!-- Header -->
+                <TextBlock Text="Medical AI " FontSize="50" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" Grid.Row="0" />
+                <!-- Input Section -->
+                <Grid Grid.Row="3" VerticalAlignment="Center">
+                    <!-- TextBox -->
+                    <Border BorderBrush="White" BorderThickness="1" CornerRadius="10" Grid.Column="0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="9*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Placeholder and TextBox Section -->
+                            <!-- Placeholder Text -->
+                            <!-- TextBox -->
+                            <TextBox Name="SymptomInput" Background="Transparent" Foreground="White" BorderBrush="White" FontSize="14" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Cursor="IBeam" Text="Entrez vos symptômes" GotFocus="SymptomInput_GotFocus" LostFocus="SymptomInput_LostFocus" />
+
+                            <!-- Microphone Button -->
+                            <Button x:Name="VoiceInputButton" Width="40" Height="40" Background="Transparent" BorderBrush="White" BorderThickness="1" Cursor="Hand" Click="VoiceInputButton_Click" Grid.Column="1">
+                                <Image x:Name="IMG_Microphone" Stretch="Uniform" RenderTransformOrigin="0.556,0.029" />
+                            </Button>
+                        </Grid>
+                    </Border>
+
+
+
+                </Grid>
+
+                <!-- Submit Button -->
+                <Button x:Name="SubmitButton" Content="Diagnose" Width="200" Height="40" Background="Transparent" Foreground="White" FontWeight="Bold" FontSize="16" BorderBrush="White" BorderThickness="1"  Cursor="Hand" Click="SubmitButton_Click" Grid.Row="2">
+                    <Button.Effect>
+                        <DropShadowEffect ShadowDepth="5" BlurRadius="10" Color="White" />
+                    </Button.Effect>
+                </Button>
+
+                <!-- Results Section -->
+                <Border BorderBrush="White" BorderThickness="1" CornerRadius="10" Grid.Row="1" VerticalAlignment="Center">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="9*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Border BorderBrush="White" BorderThickness="1">
+                            <TextBox x:Name="ResultOutput" Background="Transparent" AcceptsReturn="True" Foreground="White" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" FontSize="14" IsReadOnly="True" Grid.Column="0"/>
+                        </Border>
+
+                        <Button x:Name="BTN_IA_Voice" Width="40" Height="40" Background="Transparent" BorderBrush="White" BorderThickness="1" Cursor="Hand" Click="BTN_IA_Voice_Activation" Grid.Column="1">
+                            <Image x:Name="IMG_IA_Voice" Stretch="Uniform" RenderTransformOrigin="0.556,0.029"/>
+                        </Button>
+                    </Grid>
+                </Border>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>
